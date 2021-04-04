@@ -26,6 +26,8 @@ idle_current_timeout: how long is the carriage idle before the driver will lower
 
 low_endstop_hit: the endstop is a button and sends message like a button
 high_endstop_hit: (if this is installed) the endstop is a button and sends message like a button
+soft_min_travel: mimimum distance carriage will travel defined by software
+soft_max_travel: maximum distance carriage will travel defined by software
 
 max_length_of_travel:  How far can the carriage move after it's been homed
 max_speed: maximum speed the carriage will move. This will override any value higher than this in set_speed
