@@ -1,0 +1,43 @@
+Open Loop Linear Stepper Driver
+
+go_to_position[]: Send carriage to position, new positions will be put into an array or something and will be processed completley before going to the next value
+instantanious_postition: This input will not wait to until the carriage is anywhere. It's like a chase the dot mode
+velocity_jog: Move carriage with a velocity vector
+go_home: send the carriage to an andstop so iris can know where it is.
+enable_motor: there is a pin to turn on motor, set the pin
+set_speed: if you tell the carriage to go_to_postition this is the speed it will use
+
+is_enabled: output for if the motor is enabled
+
+current_postition_output: Output the current postition
+current_position_output_rate: how often should the current_position be outputonto the bus
+
+is_homed: has the carriage been homed
+is_in_motion: sends out button press type message when the carriage is in motion
+
+position_offset[]: I want to have an array of offsets that can be switched between.
+set_offset_position: be able to set offset to some input value
+set_offset_zero: very similar to set_offset_position except this takes a button type input and sets the_offset to zero
+
+inactivity_timeout: after a set time enable_motor will turn the motor off
+set_motor_current: sets the current setting on the motor
+idle_current: sets the low current the motor can be set at when not moving
+idle_current_timeout: how long is the carriage idle before the driver will lower the current  **A setting of zero can keep full current all the time
+
+low_endstop_hit: the endstop is a button and sends message like a button
+high_endstop_hit: (if this is installed) the endstop is a button and sends message like a button
+
+max_length_of_travel:  How far can the carriage move after it's been homed
+max_speed: maximum speed the carriage will move. This will override any value higher than this in set_speed
+max_acceleration: max acceleration of the carriage
+
+microstepping_mode: Set driver microstepping mode, full step, half, 1/4 [...] 1/32
+decay_mode: set teh decay mode for the motor
+reset_driver_counter: pulse reset pin to reset the counter
+sleep: put the driver to sleep and it will go to low power state (this is a pin toggle)
+fault: there is a pin that's toggled when the driver enters a fault state. eg. overheated
+
+steps_per_unit: number of steps to move 1 unit **I'm proposing the setup unit for these is mm and other units can be derived
+the_unit[unit]: The units that can be represented eg, mm, in, in(fraction), foot ...etc.  **I don't know how well degrees can be put in here (or if we even want to mix it in here or just have that be seperate because after a certain length rotations start at zero again, but rotary actuators are controlled exactly like this)
+
+set_positive_direction: if the motor is in the middle of travel, which way is positive direction
